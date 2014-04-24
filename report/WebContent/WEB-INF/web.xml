@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>report</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+ 
+  <servlet>
+    <servlet-name>Start</servlet-name>
+    <servlet-class>test.Start</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Start</servlet-name>
+    <url-pattern>/st</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 프로퍼티 파일 report 설정 -->
+  <servlet>
+		<servlet-name>MtoryFrontController</servlet-name>
+		<servlet-class>com.mtory.action.MtoryFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MtoryFrontController</servlet-name>
+		<url-pattern>*.do</url-pattern>
+		<!-- 웹주소창에 http://127.0.0.1:포트번호/report/*.do라고 입력하면 
+		     com.mtory.action.MtoryFrontController클래스가 실행 -->
+	</servlet-mapping>
+  
+  
+  <resource-ref>
+    <res-ref-name>jdbc/xe</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+</web-app>

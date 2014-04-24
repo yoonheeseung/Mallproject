@@ -1,0 +1,34 @@
+1. 수업시간에 한 mtory 프로퍼티 web.xml서블릿 컨트롤을
+   report 프로젝트에 그대로 옮기는 것입니다.
+
+2. src의 mtory 프로퍼티 내용이
+ /guset_write.do=execute|action.GuestWriteAction컨트롤을 통해서
+jsp/guest/guset_write.jsp 뷰페이지가 보이게 하세요.
+
+3.WebContent 에 js폴더를 만드시고 jQuery라이브러리를 넣어세요.
+  그리고, g.js파일을 만들어서 이름,제목,비번,내용을 경고창을 만드세요.
+
+4. guest_write.jsp 의 파라미터이름(아이디이름) 이렇게 하세요.
+   이름(guest_name),제목(guest_title),비밀번호(guest_pwd),내용(guest_cont)
+
+5.dao 패키지에 Guest33DAO.java 디비 연동 클래스를 만드세요.
+
+6.model패키지에  GusetBean.java Bean클래스를 만드세요.
+   변수명:guest_no(int), guest_name(String), guest_title(String),
+                    guest_pwd(String), guest_cont(String), guest_hit(int),
+guest_ref(int), guest_stop(int),guest_level(int), guest_date(String)
+
+7. guest_write_ok.do 에서 프로퍼티파일 내용은 /guest_write_ok.do=execute|acton.GuestOKAction으로 하세요...
+
+
+8.sql 폴더를 만드시고,
+ guest77.sql로 지정하세요.
+create table guest77( );
+//
+
+9. guest77_no_seq 시퀀스를 만드세요.
+
+10. 테이블에 레코드를 저장하게 하세요.
+    GuestOKAction.java 저장메서드는 insert6(g)입니다.
+
+숙제검사는 4월24일 목요일 오후 2시 5교시에 합니다.
