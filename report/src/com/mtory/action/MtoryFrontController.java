@@ -23,19 +23,22 @@ public class MtoryFrontController extends HttpServlet {
 
 		Properties prop = new Properties();
 		FileInputStream fis = 
-				new FileInputStream("C:\\home_work\\report\\build\\classes\\mtory.properties");
+//				new FileInputStream("C:\\home_work\\report\\build\\classes\\mtory.properties");
+				new FileInputStream("C:\\property\\mtory.properties");
 		
 		prop.load(fis);
-		System.out.println(fis);
+
 		fis.close();
+		
 		String value = prop.getProperty(command);
-		System.out.println(value);
-        
+		
+          System.out.println("property값:"+value);
 		if(value.substring(0,7).equals("execute")){
 			try{
 				StringTokenizer st = new StringTokenizer(value,"|");
 				String url_1 = st.nextToken();//첫번째 분리된문자열 전단
 				String url_2 = st.nextToken();//두번째 분리된 문자열 전달
+				
 				Class url = Class.forName(url_2);//두번째 분리된 컨트롤 클래스를 로드해서 실행
 				
 				System.out.println("url_1: "+url_1);
@@ -55,9 +58,22 @@ public class MtoryFrontController extends HttpServlet {
 				ex.printStackTrace();
 			}
 		}else{
-			forward=new ActionForward();
+			System.out.println("!!!!");
+			String url_2=value;
+			Class url;
+			try {
+				url = Class.forName(url_2);
+				action=(Action)url.newInstance();
+				forward=action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+	   		
+			
+			/*forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath(value);
+			forward.setPath(value);*/
 		}
 
 		if(forward != null){

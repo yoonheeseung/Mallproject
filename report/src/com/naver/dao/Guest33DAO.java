@@ -126,11 +126,12 @@ public class Guest33DAO {
 		return list;
 	}
 
+	/* 조회수 증가 */
 	public void updateHit(int board_no) {
 		try {
 			con = ds.getConnection();
-			sql = "update board76 set board_hit = board_hit + 1"
-					+ " where board_no=?";
+			sql = "update guest77 set board_hit = board_hit + 1"
+					+ " where no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, board_no);
 			pstmt.executeUpdate();
@@ -150,25 +151,26 @@ public class Guest33DAO {
 
 	}
 
-/*	 내용보기+답변글폼+수정폼+삭제폼 
-	public BoardBean getBoardCont(int board_no) {
-		BoardBean db = new BoardBean();
+	/* 내용보기+답변글폼+수정폼+삭제폼*/ 
+	public GuestBean getGuestCont(int board_no) {
+		GuestBean db = new GuestBean();
+		
 		try {
 			con = ds.getConnection();
-			sql = "select * from board76 where board_no=?";
+			sql = "select * from guest77 where no=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, board_no);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				db.setBoard_no(rs.getInt("board_no"));
-				db.setBoard_title(rs.getString("board_title"));
-				db.setBoard_cont(rs.getString("board_cont"));
-				db.setBoard_pwd(rs.getString("board_pwd"));
-				db.setBoard_hit(rs.getInt("board_hit"));
-				db.setBoard_ref(rs.getInt("board_ref"));
-				db.setBoard_step(rs.getInt("board_step"));
-				db.setBoard_level(rs.getInt("board_level"));
-				db.setBoard_date(rs.getString("board_date"));
+				db.setNo(rs.getInt("no"));
+				db.setGuest_title(rs.getString("guest_title"));
+				db.setGuest_cont(rs.getString("guest_cont"));
+				db.setGuest_pwd(rs.getString("guest_pwd"));
+				db.setGuest_hit(rs.getInt("guest_hit"));
+				db.setGuest_ref(rs.getInt("guest_ref"));
+				db.setGuest_step(rs.getInt("guest_step"));
+				db.setGuest_level(rs.getInt("guest_level"));
+				db.setGuest_date(rs.getString("guest_date"));
 			}
 
 		} catch (Exception e) {
@@ -188,48 +190,49 @@ public class Guest33DAO {
 		return db;
 	}
 
-	public void replyBoard(BoardBean br) {
-
-		int board_ref = br.getBoard_ref();
-		int board_step = br.getBoard_step();
-		int board_level = br.getBoard_level();
+	
+	public void replyGuest(GuestBean gr) {
+		int guest_ref = gr.getGuest_ref();
+		int guest_step = gr.getGuest_step();
+		int guest_level = gr.getGuest_level();
 
 		try {
 
 			con = ds.getConnection();
-			sql = "update board76 set board_level=board_level+1 "
-					+ "where board_ref=? and board_level > ?";
+			sql = "update guest77 set guest_level=guest_level+1 "
+					+ "where guest_ref=? and guest_level > ?";
 			// 답변글 달때 레벨값 1씩 증가
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, board_ref);// 글그룹번호 저장
-			pstmt.setInt(2, board_level);// 답변글 레벨값 저장 */
-	/*		System.out.println("업데이트시!");
+			pstmt.setInt(1, guest_ref);// 글그룹번호 저장
+			pstmt.setInt(2, guest_level);// 답변글 레벨값 저장 
+		    System.out.println("업데이트시!");
 			pstmt.executeUpdate();
 			System.out.println("업데이트 카운트:");
 
 			// insert
-			board_step = board_step + 1;
-			board_level = board_level + 1;
+			guest_step = guest_step + 1;
+			guest_level = guest_level + 1;
 
-			sql = "insert into board76(board_no,board_name,board_title,board_pwd,board_cont,board_ref,board_step,board_level,board_date) "
-					+ "values(board76_no_seq.nextval,?,?,?,?,?,?,?,sysdate)";
+			sql = "insert into guest77(no,guest_name,guest_title,guest_pwd,guest_cont,guest_ref,guest_stop,guest_level,guest_date) "
+					+ "values(guest77_no_seq.nextval,?,?,?,?,?,?,?,sysdate)";
 
 			System.out.println("6");
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, br.getBoard_name());
-			pstmt.setString(2, br.getBoard_title());
-			pstmt.setString(3, br.getBoard_pwd());
-			pstmt.setString(4, br.getBoard_cont());
-			pstmt.setInt(5, board_ref);
-			pstmt.setInt(6, board_step);
-			pstmt.setInt(7, board_level);
+			pstmt.setString(1, gr.getGuest_name());
+			pstmt.setString(2, gr.getGuest_title());
+			pstmt.setString(3, gr.getGuest_pwd());
+			pstmt.setString(4, gr.getGuest_cont());
+			pstmt.setInt(5, guest_ref);
+			pstmt.setInt(6, guest_step);
+			pstmt.setInt(7, guest_level);
 
 			System.out.println("7");
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+		  e.printStackTrace();
 		}
-	}*/
+		
+	}
 
 }
