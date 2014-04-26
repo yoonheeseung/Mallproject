@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mtory.action.Action;
 import com.mtory.action.ActionForward;
-import com.naver.dao.Board76DAO;
-import com.naver.model.BoardBean;
+import com.naver.dao.Guest33DAO;
+import com.naver.model.GuestBean;
 
 public class GuestDelAction implements Action{
 
@@ -20,7 +20,7 @@ public class GuestDelAction implements Action{
 		//웹상에 출력되는 언어코딩 타입을 설정함. 한글을 안깨지게 한다.
 		PrintWriter out =response.getWriter(); //출력 스트림 객체 생성
 		
-		int board_no = Integer.parseInt(request.getParameter("board_no"));
+		int guest_no = Integer.parseInt(request.getParameter("guest_no"));
 		//히든으로 넘어온 글번호를 정수형 숫자로 바꿔서 저장
 		
 		int page=1;
@@ -32,22 +32,22 @@ public class GuestDelAction implements Action{
 		
 		System.out.println("입력번호:"+del_pwd);
 				
-		Board76DAO bd=new Board76DAO();
+		Guest33DAO gd=new Guest33DAO();
 		
-		BoardBean db_pwd=bd.getBoardCont(board_no);
+		GuestBean db_pwd=gd.getGuestCont(guest_no);
 		
-		System.out.println("비번: "+"'"+db_pwd.getBoard_pwd()+"'");
+		System.out.println("비번: "+"'"+db_pwd.getGuest_pwd()+"'");
 		
 		//번호에 해당하는 비번을 가져옴
-		if(!db_pwd.getBoard_pwd().equals(del_pwd)){
+		if(!db_pwd.getGuest_pwd().equals(del_pwd)){
 			out.println("<script>");
 			out.println("alert('비번이 다릅니다!')");
 			out.println("history.go(-1)");
 			out.println("</script>");
 		}else{
-			bd.deleteBoard(board_no);
+			gd.deleteGuest(guest_no);
 			
-			response.sendRedirect("board_list.do?page="+page);
+			response.sendRedirect("guest_list.do?page="+page);
 	    	//get방식으로 쪽번호를 넘기면서 목록으로 이동
 		}
 		return null;

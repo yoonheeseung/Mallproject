@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mtory.action.Action;
 import com.mtory.action.ActionForward;
+import com.naver.dao.Guest33DAO;
+import com.naver.model.GuestBean;
 
 
 public class GuestEditAction implements Action{
@@ -19,7 +21,7 @@ public class GuestEditAction implements Action{
   PrintWriter out=response.getWriter();
   request.setCharacterEncoding("utf-8");
   //form태그의 method=post방식으로 넘어온 한글을 아깨지게 함.
-    int board_no = Integer.parseInt(request.getParameter("board_no"));
+    int guest_no = Integer.parseInt(request.getParameter("guest_no"));
     //히든으로 넘어온 번호값을 정수형 숫자로 바꿔서 저장
     int page=1;
     if(request.getParameter("page") !=null){
@@ -27,37 +29,37 @@ public class GuestEditAction implements Action{
     	//페이지 번호값 저장
     }
     
-    String board_name=request.getParameter("board_name");
-    String board_title=request.getParameter("board_title");
-    String board_pwd=request.getParameter("board_pwd");
-    String board_cont=request.getParameter("board_cont");
+    String guest_name=request.getParameter("guest_name");
+    String guest_title=request.getParameter("guest_title");
+    String guest_pwd=request.getParameter("guest_pwd");
+    String guest_cont=request.getParameter("guest_cont");
     
     System.out.println("-------------------------------");
-    System.out.println("BoradAction-name"+board_name);
-    System.out.println("BoradAction-title"+board_title);
-    System.out.println("BoradAction-pwd"+board_pwd);
-    System.out.println("BoradAction-cont"+board_cont);
+    System.out.println("BoradAction-name"+guest_name);
+    System.out.println("BoradAction-title"+guest_title);
+    System.out.println("BoradAction-pwd"+guest_pwd);
+    System.out.println("BoradAction-cont"+guest_cont);
     
-    Board76DAO bd=new Board76DAO();
+    Guest33DAO gd=new Guest33DAO();
     
-    BoardBean db_pwd=bd.getBoardCont(board_no);
+    GuestBean db_pwd=gd.getGuestCont(guest_no);
     //데이터베이스로부터 비번을 가져옴.
     
-    System.out.println("db_pwd: "+db_pwd.getBoard_pwd());
+    System.out.println("db_pwd: "+db_pwd.getGuest_pwd());
     
-    if(db_pwd.getBoard_pwd().equals(board_pwd)){
-    	BoardBean eb=new BoardBean();
-    	eb.setBoard_no(board_no);
-    	eb.setBoard_name(board_name);
-    	eb.setBoard_title(board_title);
-    	eb.setBoard_cont(board_cont);
+    if(db_pwd.getGuest_pwd().equals(guest_pwd)){
+    	GuestBean eb=new GuestBean();
+    	eb.setNo(guest_no);
+    	eb.setGuest_name(guest_name);
+    	eb.setGuest_title(guest_title);
+    	eb.setGuest_cont(guest_cont);
     	
     	
-    	bd.editBoard(eb);//
+    	gd.editGuest(eb);//
     	
     	ActionForward forward=new ActionForward();
     	forward.setRedirect(true);
-    	forward.setPath("board_cont.do?board_no="+board_no+"&page="+page+"&state=cont");
+    	forward.setPath("guest_cont.do?guest_no="+guest_no+"&page="+page+"&state=cont");
     	System.out.println("return forward!!!");
     	return forward;
     }else{

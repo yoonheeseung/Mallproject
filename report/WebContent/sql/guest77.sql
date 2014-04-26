@@ -26,4 +26,5 @@ from (select * from guest77 order by guest_ref desc,guest_level asc)
 )
 where rnum>=1 and rnum<=20
 					
+select * from guest77
 					

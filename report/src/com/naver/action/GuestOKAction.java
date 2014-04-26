@@ -29,7 +29,7 @@ public class GuestOKAction implements Action {
 
 		Guest33DAO gd = new Guest33DAO();
 
-		gd.insert6(g);// 10.저장메서드
+		gd.insertG(g);// 10.저장메서드
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./jsp/guest/guest_write.jsp");

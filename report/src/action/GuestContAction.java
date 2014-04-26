@@ -28,6 +28,8 @@ public class GuestContAction implements Action {
 		
 		Guest33DAO guestdao = new Guest33DAO();
 
+		System.out.println("Guestcont의 satus상태: "+status);
+		
 		if (status.equals("cont")) {
 			guestdao.updateHit(guest_no);
 		}
@@ -36,7 +38,7 @@ public class GuestContAction implements Action {
 		// 번호에 해당하는 내용을 디비로 부터 가져온다.
 		String guest_cont = gcont.getGuest_cont().replace("\n", "<br/>");
 		// 글내용을 입력할때 textarea박스에서 엔터기 친 부분을 내용보기에서 다음 줄로 개행시켜라.
-
+              System.out.println("글내용: "+guest_cont);
 		/*********************************************/
 		request.setAttribute("gcont", gcont);
 		request.setAttribute("page", page);//이전페이지 쪽번호로 가기위한 페이지번호 저장

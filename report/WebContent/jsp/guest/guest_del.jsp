@@ -19,8 +19,7 @@
 <body>
  <form method="post" action="guest_del_ok.do"
  onsubmit="return del_check();">
-  <input type="hidden" name="guest_no" 
-    value="${gcont.guest_no}" />
+  <input type="hidden" name="guest_no" value="${gcont.no}" />
   <input type="hidden" name="page" value="${page}" />
   <table align="center" border="1">
    <tr>

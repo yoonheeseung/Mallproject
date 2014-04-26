@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServlet;
 
+import com.naver.dao.Guest33DAO;
+
 import java.util.*;
 
 @SuppressWarnings("serial")
@@ -33,6 +35,8 @@ public class MtoryFrontController extends HttpServlet {
 		String value = prop.getProperty(command);
 		
           System.out.println("property값:"+value);
+          
+          
 		if(value.substring(0,7).equals("execute")){
 			try{
 				StringTokenizer st = new StringTokenizer(value,"|");
@@ -64,7 +68,8 @@ public class MtoryFrontController extends HttpServlet {
 			try {
 				url = Class.forName(url_2);
 				action=(Action)url.newInstance();
-				forward=action.execute(request, response);
+
+
 			}catch(Exception e){
 				e.printStackTrace();
 			}

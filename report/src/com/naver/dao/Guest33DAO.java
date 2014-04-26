@@ -3,12 +3,14 @@ package com.naver.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 
 
 import com.naver.model.GuestBean;
@@ -33,7 +35,7 @@ public class Guest33DAO {
 	}// 생성자
   
 	/*저장 메서드 */
-	public void insert6(GuestBean gb) {
+	public void insertG(GuestBean gb) {
 		try {
 			con = ds.getConnection();
 			sql="insert into guest77(no,guest_name,guest_title,guest_pwd,guest_cont,"
@@ -60,7 +62,7 @@ public class Guest33DAO {
 		int i = 0;
 		try {
 			con = ds.getConnection();
-			sql = "select count(*) from board76";
+			sql = "select count(*) from guest77";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -79,12 +81,13 @@ public class Guest33DAO {
 				if (con != null)
 					con.close();
 			} catch (Exception e2) {
-				// TODO: handle exception
+				e2.printStackTrace();
 			}
 		}
 		return i;
 	}
 
+	/* List */
 	public List<GuestBean> getGuestList(int page, int limit) {
 		List<GuestBean> list = new ArrayList<GuestBean>();
 		int startrow = (page - 1) * 10 + 1; // 읽기 시작할 row 번호.
@@ -127,17 +130,17 @@ public class Guest33DAO {
 	}
 
 	/* 조회수 증가 */
-	public void updateHit(int board_no) {
+	public void updateHit(int guest_no) {
 		try {
 			con = ds.getConnection();
-			sql = "update guest77 set board_hit = board_hit + 1"
+			sql = "update guest77 set guest_hit = guest_hit + 1"
 					+ " where no=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, board_no);
+			pstmt.setInt(1, guest_no);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			try {
 				if (pstmt != null)
@@ -145,32 +148,32 @@ public class Guest33DAO {
 				if (con != null)
 					con.close();
 			} catch (Exception e2) {
-				// TODO: handle exception
+				e2.printStackTrace();
 			}
 		}
 
 	}
 
 	/* 내용보기+답변글폼+수정폼+삭제폼*/ 
-	public GuestBean getGuestCont(int board_no) {
-		GuestBean db = new GuestBean();
-		
+	public GuestBean getGuestCont(int guest_no) {
+		GuestBean gb = new GuestBean();		   
 		try {
 			con = ds.getConnection();
 			sql = "select * from guest77 where no=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, board_no);
+			pstmt.setInt(1, guest_no);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				db.setNo(rs.getInt("no"));
-				db.setGuest_title(rs.getString("guest_title"));
-				db.setGuest_cont(rs.getString("guest_cont"));
-				db.setGuest_pwd(rs.getString("guest_pwd"));
-				db.setGuest_hit(rs.getInt("guest_hit"));
-				db.setGuest_ref(rs.getInt("guest_ref"));
-				db.setGuest_step(rs.getInt("guest_step"));
-				db.setGuest_level(rs.getInt("guest_level"));
-				db.setGuest_date(rs.getString("guest_date"));
+				gb.setNo(rs.getInt("no"));
+				gb.setGuest_name(rs.getString("guest_name"));
+				gb.setGuest_title(rs.getString("guest_title"));
+				gb.setGuest_cont(rs.getString("guest_cont"));
+				gb.setGuest_pwd(rs.getString("guest_pwd"));
+				gb.setGuest_hit(rs.getInt("guest_hit"));
+				gb.setGuest_ref(rs.getInt("guest_ref"));
+				gb.setGuest_step(rs.getInt("guest_step"));
+				gb.setGuest_level(rs.getInt("guest_level"));
+				gb.setGuest_date(rs.getString("guest_date"));
 			}
 
 		} catch (Exception e) {
@@ -187,10 +190,10 @@ public class Guest33DAO {
 				e2.printStackTrace();
 			}
 		}
-		return db;
+		return gb;
 	}
 
-	
+	/* 답변 */
 	public void replyGuest(GuestBean gr) {
 		int guest_ref = gr.getGuest_ref();
 		int guest_step = gr.getGuest_step();
@@ -213,7 +216,7 @@ public class Guest33DAO {
 			guest_step = guest_step + 1;
 			guest_level = guest_level + 1;
 
-			sql = "insert into guest77(no,guest_name,guest_title,guest_pwd,guest_cont,guest_ref,guest_stop,guest_level,guest_date) "
+			sql = "insert into guest77(no,guest_name,guest_title,guest_pwd,guest_cont,guest_ref,guest_step,guest_level,guest_date) "
 					+ "values(guest77_no_seq.nextval,?,?,?,?,?,?,?,sysdate)";
 
 			System.out.println("6");
@@ -235,4 +238,37 @@ public class Guest33DAO {
 		
 	}
 
+	/* 수정 */
+	public void editGuest(GuestBean eb) {
+			try {
+				con = ds.getConnection();
+				sql = "update guest77 set guest_name=?,guest_title=?,gust_cont=? where no=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, eb.getGuest_name());
+				pstmt.setString(2, eb.getGuest_title());
+				pstmt.setString(3, eb.getGuest_cont());
+				pstmt.setInt(4, eb.getNo());
+
+				pstmt.executeQuery();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}//editGuest()
+
+
+	/* 삭제 */
+	public void deleteGuest(int guest_no) {
+		try {
+			con=ds.getConnection();
+			sql="delete from guest77 where no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, guest_no);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}//deleteGuest()
 }

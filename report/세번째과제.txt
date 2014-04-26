@@ -1,0 +1,29 @@
+세번째 과제물
+1.프로퍼티 파일 내용
+  /guest_list.do=action.GuestListAction
+  /guest_cont.do=action.GuestContAction
+
+2.jsp/guest 폴더의 뷰페이지 파일명
+  guest_list.jsp(EL과 jstl 문법으로 목록 표현)
+  guest_cont.jsp(EL로 표현,제목,내용,조회수 나오게 하면된다)
+  특히 내용은 textarea박스에서 엔터키 친부분을 다음줄로 개행되게 하세요.
+  GuestContAction.java에서 replace("\n","<br/>");
+
+3.내용보기 할때 조회수 증가되게 만드세요!
+
+4.guest_cont.jsp내용물
+  제목
+  내용
+  조회수
+  답변 수정 삭제 목록 버튼 추가....
+
+5.GuestContAction.java 컨트롤 클래스는 내용보기:cont,
+  답변글 폼:reply, 수정폼:edit, 삭제폼:del
+
+6. guest_lsit.jsp는 반드시 페이징이 되어야 합니다.
+
+7. 1차 숙제검사:4월29일 화요일 오후 2시 5교시에 합니다.
+   2차 숙제검사:4월30일 수요일 오후 2시 5교시에 합니다.
+   
+
+네번째 과제물은  4월30일 오후에 출제합니다.

@@ -14,8 +14,8 @@
 		<h2 class="bEdit_title">MVC 방명록 수정</h2>
 		<form method="post" action="guest_edit_ok.do"
 			onclick="return write_check();">
-			<input type="hidden" name="guest_no" value="${gcont.guest_no}" /> 
-			<inputtype="hidden" name="page" value="${page}" />
+			<input type="hidden" name="guest_no" value="${gcont.no}" /> 
+			<input type="hidden" name="page" value="${page}" />
 			<%--히든은 웹상에 만들어 지지 않는다. 글번호를 넘길 수 있다. --%>
 			<table id="bEdit_t">
 				<tr>
@@ -43,6 +43,7 @@
 				<input type="submit" value="수정" /> <input type="reset" value="취소"
 					onclick="${'#guest_name'}.focus();" />
 			</div>
+			<p>${gcont.guest_name}</p>
 		</form>
 
 	</div>

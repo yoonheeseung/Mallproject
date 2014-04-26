@@ -26,28 +26,33 @@ public class MtoryFrontController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException {
 		String RequestURI=request.getRequestURI();
-		System.out.println("Cntr-RequestUri: "+RequestURI);
 		String contextPath=request.getContextPath();
-		System.out.println("Cntr-contextPath: "+contextPath);
 		String command=RequestURI.substring(contextPath.length());
-		System.out.println("Cntr-command: "+command);
 		ActionForward forward=null;
 		Action action=null;
-
+		
+		
+		System.out.println("Cntr-RequestUri: "+RequestURI);
+		System.out.println("Cntr-contextPath: "+contextPath);
+		System.out.println("Cntr-command: "+command);
+		
 		Properties prop = new Properties();
 		FileInputStream fis = 
-				new FileInputStream("C:\\stswork2\\mvc\\build\\classes\\mtory.properties");
+				new FileInputStream("C:\\stswork2\\mvc\\build\\classes\\mymtory.properties");
 //		        new FileInputStream("c:\\stswork2/mvc/build/classes/mtory.properties");
 //		new FileInputStream("C:\\stswork2\\mvc\\src\\mtory.properties");
 		/* 자바 폴더 경로구분은 \\ or / 처리한다.  \는 안됨*/
 	
 		
 		prop.load(fis);
-		System.out.println("Cntr-fis: "+fis);
+		
 		fis.close();
 		String value = prop.getProperty(command);
+	
+		System.out.println("Cntr-fis: "+fis);
 		System.out.println("Cntr-value: "+value);
         
+		
 		if(value.substring(0,7).equals("execute")){
 			try{
 				StringTokenizer st = new StringTokenizer(value,"|");
