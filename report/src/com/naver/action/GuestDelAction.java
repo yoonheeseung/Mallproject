@@ -46,7 +46,10 @@ public class GuestDelAction implements Action{
 			out.println("</script>");
 		}else{
 			gd.deleteGuest(guest_no);
-			
+			out.println("<script>");
+			out.println("alert('글을 삭제하였습니다!')");
+			out.println("history.go(-1)");
+			out.println("</script>");
 			response.sendRedirect("guest_list.do?page="+page);
 	    	//get방식으로 쪽번호를 넘기면서 목록으로 이동
 		}

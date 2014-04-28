@@ -242,7 +242,7 @@ public class Guest33DAO {
 	public void editGuest(GuestBean eb) {
 			try {
 				con = ds.getConnection();
-				sql = "update guest77 set guest_name=?,guest_title=?,gust_cont=? where no=?";
+				sql = "update guest77 set guest_name=?,guest_title=?,guest_cont=? where no=?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, eb.getGuest_name());
 				pstmt.setString(2, eb.getGuest_title());

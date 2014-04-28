@@ -56,6 +56,7 @@ public class GuestContAction implements Action {
 			request.setAttribute("guest_cont", guest_cont);
 			forward.setPath("./jsp/guest/guest_reply.jsp");
 		} else if (status.equals("edit")) {
+			request.setAttribute("guest_cont", guest_cont);
 			forward.setPath("./jsp/guest/guest_edit.jsp");
 		} else if (status.equals("del")) {
 			forward.setPath("./jsp/guest/guest_del.jsp");

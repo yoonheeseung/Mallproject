@@ -1,10 +1,6 @@
-/* guest_write.jsp */
+/* guest_edit.jsp */
 $(document).ready(function(){
-	if($.trim($("#guest_name").val())==""){
-		$("#guest_name").focus();
-	}else if($.trim($("#guest_name").val())!=""){
-		$("#guest_pwd").focus();
-	}
+	$("#guest_pwd").focus();
 });
 
 function write_check() {

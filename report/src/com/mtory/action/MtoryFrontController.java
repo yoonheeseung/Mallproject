@@ -27,6 +27,7 @@ public class MtoryFrontController extends HttpServlet {
 		FileInputStream fis = 
 //				new FileInputStream("C:\\home_work\\report\\build\\classes\\mtory.properties");
 				new FileInputStream("C:\\property\\mtory.properties");
+//		new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/report/src/mtory.properties");
 		
 		prop.load(fis);
 
@@ -62,14 +63,20 @@ public class MtoryFrontController extends HttpServlet {
 				ex.printStackTrace();
 			}
 		}else{
-			System.out.println("!!!!");
+			
 			String url_2=value;
+			
 			Class url;
+			
 			try {
 				url = Class.forName(url_2);
+				
 				action=(Action)url.newInstance();
-
-
+				try {
+					forward=action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}catch(Exception e){
 				e.printStackTrace();
 			}

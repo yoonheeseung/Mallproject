@@ -54,7 +54,7 @@ public class GuestEditAction implements Action{
     	eb.setGuest_title(guest_title);
     	eb.setGuest_cont(guest_cont);
     	
-    	
+    	System.out.println("수정 저장");
     	gd.editGuest(eb);//
     	
     	ActionForward forward=new ActionForward();
@@ -64,7 +64,7 @@ public class GuestEditAction implements Action{
     	return forward;
     }else{
     	out.println("<script>");
-    	out.println("alert('password is not matched!')");
+    	out.println("alert('비번이 맞지않습니다!')");
     	out.println("history.go(-1)");
     	out.println("</script>");
     }

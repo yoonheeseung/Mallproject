@@ -16,7 +16,7 @@ public class GuestListAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+System.out.println("GuestListAction시작:");
 		/* 복사시작 */
 		Guest33DAO guestdao = new Guest33DAO();
 

@@ -3,27 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript" src="../report/js/jquery.js"></script>
+<script type="text/javascript" src="../report/js/gdel.js"></script>
+<link rel="stylesheet" type="text/css" href="../report/css/guest.css" />
+
 <meta charset="UTF-8">
 <title>MVC 방명록 삭제</title>
-<script src="./js/jquery.js"></script>
-<script>
-  function del_check(){
-	  if($.trim($("#del_pwd").val())==""){
-		  alert("비번을 입력하세요!");
-		  $("#del_pwd").val("").focus();
-		  return false;
-	  }
-  }
-</script>
 </head>
 <body>
  <form method="post" action="guest_del_ok.do"
  onsubmit="return del_check();">
   <input type="hidden" name="guest_no" value="${gcont.no}" />
   <input type="hidden" name="page" value="${page}" />
-  <table align="center" border="1">
+  <table id="gDel_t" align="center" border="1">
    <tr>
-    <th colspan="2">MVC 게시판 삭제</th>
+    <th id="gDel_title" colspan="2">MVC 게시판 삭제</th>
    </tr>
    <tr>
     <th>비밀번호</th>
@@ -37,6 +31,7 @@
     <input type="submit" value="삭제" />
     <input type="reset" value="취소" 
     onclick="$('#del_pwd').focus();" />
+    <input type="button" value="뒤로" onclick="history.go(-1)">
     </th>
    </tr>
   </table>   
