@@ -1,6 +1,7 @@
 package model;
 
 public class AdminBean {
+
 	/*
 	 * 테이블 필드명과 변수명을 같게 한다.
 	 */
@@ -9,6 +10,7 @@ public class AdminBean {
 	private String admin_pwd;
 	private String admin_name;
 	private String admin_date;
+	
 	public int getAdmin_no() {
 		return admin_no;
 	}
@@ -38,7 +40,5 @@ public class AdminBean {
 	}
 	public void setAdmin_date(String admin_date) {
 		this.admin_date = admin_date;
-	}
-	
-	
+	}	
 }

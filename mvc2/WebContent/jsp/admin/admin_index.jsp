@@ -21,7 +21,7 @@
    <!-- 상단메뉴 -->
    <div id="aIndex_menu">
     <ul>
-     <li><a href="admin_gongji_write.html">공지사항</a></li>
+     <li><a href="admin_gongji_list.html">공지사항</a></li>
      <li><a href="#">게시판</a></li>
      <li><a href="#">자료실</a></li>
      <li><a href="#">회원관리</a></li>

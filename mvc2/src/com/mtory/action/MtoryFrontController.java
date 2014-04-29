@@ -37,7 +37,7 @@ public class MtoryFrontController extends HttpServlet {
 		Properties prop = new Properties();
 		FileInputStream fis = 
 new FileInputStream(
-		"c:\\stswork2/mvc2/build/classes/mtory.properties");
+		"C:/Users/admin/git/test/mvc2/build/classes/mtory.properties");
 	//자바 폴더 경로구분은 \\  or / 처리한다. \는 안됨.
 		prop.load(fis);//프로퍼티파일을 로드
 		fis.close();

@@ -2,13 +2,16 @@ package model;
 
 public class GongjiBean {
 
+	/*
+	 * 테이블 필드명과 변수명은 같게 한다.
+	 */
 	private int gongji_no;
 	private String gongji_name;
-	private String 	gongji_title;
-	private String 	gongji_pwd;
-	private String 	gongji_cont;
-	private int	gongji_hit;
-	private String 	gongji_date;
+	private String gongji_title;
+	private String gongji_pwd;
+	private String gongji_cont;
+	private int gongji_hit;
+	private String gongji_date;
 	
 	public int getGongji_no() {
 		return gongji_no;
@@ -50,8 +53,6 @@ public class GongjiBean {
 		return gongji_date;
 	}
 	public void setGongji_date(String gongji_date) {
-		this.gongji_date = gongji_date;
-	}
-	
-	
+		this.gongji_date = gongji_date.substring(0,10);
+	}	
 }

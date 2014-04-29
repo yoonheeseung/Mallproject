@@ -26,8 +26,8 @@ public class MtoryFrontController extends HttpServlet {
 		Properties prop = new Properties();
 		FileInputStream fis = 
 //				new FileInputStream("C:\\home_work\\report\\build\\classes\\mtory.properties");
-				new FileInputStream("C:\\property\\mtory.properties");
-//		new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/report/src/mtory.properties");
+//				new FileInputStream("C:\\property\\mtory.properties");
+		new FileInputStream("C:/Users/admin/git/test/report/src/mtory.properties");
 		
 		prop.load(fis);
 

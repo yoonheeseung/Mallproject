@@ -110,10 +110,62 @@ a:hover{/*하이퍼링크 된곳 마우스 오버시*/
 	font-size:16px;
 }
 
+/* admin_gongji_write.jsp ui */
+#aGongji_wrap{
+	width:380px; height:370px; border:1px solid pink;
+	border-radius:15px;
+	margin-left:auto;margin-right:auto;
+	margin-top:30px;
+}
+#aGongji_wrap .aGongji_title{
+	margin:27px 0 0 106px; width:160px;
+	font-size:19px; background:pink; border-radius:15px;
+	padding:3px; text-align:center;
+}
+#aGongji_t{
+	margin:20px 0 0 17px;
+}
+#aGongji_t th{
+	background:#ccc; border-radius:15px;
+}
+#aGongji_menu{
+	margin:25px 0 0 75px;
+}
 
-
-
-
+/*admin_gongji_list.jsp ui */
+#aGongji_list{
+	width:815px; padding:5px;
+	border:1px solid blue; border-radius:20px;
+	box-shadow:20px 20px 20px #ccc;
+	margin-left:auto; margin-right:auto;
+	margin-top:10px;
+}
+#aGongji_list .aGongji_title{
+	margin:15px 0 0 300px; width:170px;
+	font-size:20px; background:pink; border-radius:15px;
+	text-align:center; padding:3px;
+}
+#aGongji_t{
+	margin:10px 0 0 15px;
+}
+#bList_paging{
+	margin:13px 0 0 270px;
+}
+#bListW_menu{
+	margin:13px 0 10px 720px;
+}
+.input_b{
+	border-radius:15px; font-weight:bold; 
+	border:1px solid red;
+}
+.input_b:hover{
+	cursor:pointer; cursor:hand;
+}
+#aGongji_list .aGongji_count{
+	margin:7px 0 0 640px; background:skyblue;
+	padding:3px; text-align:center;
+	border-radius:15px; width:140px; font-size:16px;
+}
 
 
 

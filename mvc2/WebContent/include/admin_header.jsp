@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--JSTL 태그라이브러리 추가 --%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>관리자 메인화면</title>
 <link rel="stylesheet" type="text/css" href="./css/admin.css" />
+<script src="./js/jquery.js"></script>
+<script src="./js/admin_gongji.js"></script>
 </head>
 <body>
  <div id="aIndex_wrap">
@@ -21,7 +25,7 @@
    <!-- 상단메뉴 -->
    <div id="aIndex_menu">
     <ul>
-     <li><a href="admin_gongji_write.html">공지사항</a></li>
+     <li><a href="admin_gongji_list.html">공지사항</a></li>
      <li><a href="#">게시판</a></li>
      <li><a href="#">자료실</a></li>
      <li><a href="#">회원관리</a></li>
