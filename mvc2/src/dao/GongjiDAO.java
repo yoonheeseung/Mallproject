@@ -126,6 +126,7 @@ public class GongjiDAO {
 			if(rs.next()){
 				g=new GongjiBean();
 				g.setGongji_no(rs.getInt("gongji_no"));
+				g.setGongji_name(rs.getString("gongji_name"));
 				g.setGongji_title(rs.getString("gongji_title"));
 				g.setGongji_cont(rs.getString("gongji_cont"));
 				g.setGongji_hit(rs.getInt("gongji_hit"));
@@ -137,6 +138,46 @@ public class GongjiDAO {
 		}
 		return g;
 	}//getGongjiCont()
+
+	/*관리자 공지 수정 */
+	public void gongjiEdit(GongjiBean g) {
+		try {
+			con=ds.getConnection();
+			sql="update gongji7"
+			  + " set gongji_name=?,"
+			  + " gongji_title=?,"
+			  + " gongji_cont=? "
+			  + " where gongji_no=?";
+			pstmt.setString(1,g.getGongji_name());
+			pstmt.setString(2,g.getGongji_title());
+			pstmt.setString(3,g.getGongji_cont());
+			pstmt.setInt(4,g.getGongji_no());
+			
+			pstmt.executeUpdate();
+			
+			pstmt.close(); con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public void gongjiDEL(int gongji_no) {
+		try {
+			con=ds.getConnection();
+			sql="delete gongji7 where gongji_no=?";
+			pstmt=con.prepareStatement(sql);
+			
+			pstmt.setInt(1,gongji_no);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
 
 

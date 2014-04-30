@@ -167,5 +167,44 @@ a:hover{/*하이퍼링크 된곳 마우스 오버시*/
 	border-radius:15px; width:140px; font-size:16px;
 }
 
-
-
+/* admin_gongji_cont.jsp */
+#aGongji_cont{
+	width: 370px;
+	padding: 10px;
+	border: 1px solid blue;
+	border-radius:10px;
+	box-shadow:10px 10px 10px #ccc;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 60px;
+}
+/* admin_gongji_del.jsp ui */
+#aGDel_wrap{
+	width: 300px;
+	height: 150px;
+	border: 1px solid blue;
+	border-radius:10px;
+	box-shadow:10px 10px 10px #ccc;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:100px;
+}
+#aGDel_wrap .aGDel_title{
+	margin: 23px 0 0 70px;
+	width: 170px;
+	font-size: 20px;
+	text-algin:center;
+	background: pink;
+	border-radius:20px;
+	padding: 3px;
+}
+#aGDel_t{
+	margin: 15px 0 0 45px;
+}
+#aGDel_t th{
+	background: pink;
+	border-radius:10px;
+}
+#aGDel_menu{
+	margin:15px 0 0 70px;
+}
