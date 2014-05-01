@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -116,6 +117,7 @@ public class GongjiDAO {
 
 	/*공지내용+수정+삭제폼*/
 	public GongjiBean getGongjiCont(int gongji_no) {
+		System.out.println(gongji_no);
 		GongjiBean g=null;
 		try{
 			con=ds.getConnection();
@@ -143,11 +145,10 @@ public class GongjiDAO {
 	public void gongjiEdit(GongjiBean g) {
 		try {
 			con=ds.getConnection();
-			sql="update gongji7"
-			  + " set gongji_name=?,"
-			  + " gongji_title=?,"
-			  + " gongji_cont=? "
-			  + " where gongji_no=?";
+			sql="update gongji7 "
+					+ "set gongji_name=?,gongji_title=?,gongji_cont=?"
+					+ " where gongji_no=?";
+			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,g.getGongji_name());
 			pstmt.setString(2,g.getGongji_title());
 			pstmt.setString(3,g.getGongji_cont());
@@ -176,6 +177,47 @@ public class GongjiDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+	}
+
+	//사용자 단 메인페이지 공지목록
+	public List<GongjiBean> getGList() {
+		List<GongjiBean> glist=new ArrayList<GongjiBean>();
+		//업케스팅하면서 컬렉션 제내릭 객체를 생성
+		try {
+			con=ds.getConnection();
+			sql="select * from "
+					+ "(select gongji_no, gongji_title,gongji_date from "
+					+ "gongji7 order by gongji_no desc)"
+					+ " where rownum <=5";
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+			   GongjiBean g=new GongjiBean();
+			   g.setGongji_no(rs.getInt("gongji_no"));
+			   g.setGongji_title(rs.getString("gongji_title"));
+			   g.setGongji_date(rs.getString("gongji_date"));
+			     glist.add(g);
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return glist;
+	}
+
+	//조회 수 증가
+	public void updateHit(int no) {
+		try {
+			con=ds.getConnection();
+			sql="update gongji7 set gongji_hit=gongji_hit + 1 where gongji_no=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 }

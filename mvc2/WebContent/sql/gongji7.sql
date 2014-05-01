@@ -13,3 +13,5 @@ create sequence gongji7_no_seq
 increment by 1 start with 1 nocache;
 
 select * from gongji7 order by gongji_no desc;
+
+select * from gongji7;

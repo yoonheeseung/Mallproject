@@ -35,6 +35,7 @@ public class MtoryFrontController extends HttpServlet {
 		Action action=null;
 
 		Properties prop = new Properties();
+		
 		FileInputStream fis = 
 new FileInputStream(
 		"C:/Users/admin/git/test/mvc2/build/classes/mtory.properties");

@@ -10,16 +10,15 @@ import model.GongjiBean;
 import com.mtory.action.Action;
 import com.mtory.action.ActionForward;
 
-
 import dao.GongjiDAO;
 
-public class AdminGongListAction implements Action {
+public class GongjiListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
 		GongjiDAO boarddao = new GongjiDAO();
-
 		int page = 1;
 		int limit = 7;
 
@@ -49,9 +48,24 @@ public class AdminGongListAction implements Action {
 		request.setAttribute("glist", glist);
 		/* 복사끝 */
 
+			
 		ActionForward forward=new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./jsp/admin/admin_gongji_list.jsp");
+	    forward.setRedirect(false);
+	    forward.setPath("./jsp/gongji/gongji_list.jsp");
 		return forward;
+
+		
+		/*
+		 * 과제물
+		 *  1.수정/삭제 버튼이 빠진 번호,제목,작성자,조회수,날짜
+		 *  제목으로 출력되는 공지목록페이지 gongji_list.jsp
+		 *  작성하시면 됩니다.
+		 *  2.페이징이 되야 합니다. 한페이지에 10개 목록이 나오게
+		 *  하세요. 공지작성 버튼 빼야 합니다.
+		 *  3.공지제목 클릭시...다시 gongji_cont.html로 이동하면
+		 *  됩니다. 점심시간 포함해서 5교시 까지 해결하시면 됩니다.
+		 */
+		
 	}
+
 }

@@ -112,7 +112,7 @@ a:hover{/*하이퍼링크 된곳 마우스 오버시*/
 
 /* admin_gongji_write.jsp ui */
 #aGongji_wrap{
-	width:380px; height:370px; border:1px solid pink;
+	width:390px; height:370px; border:1px solid pink;
 	border-radius:15px;
 	margin-left:auto;margin-right:auto;
 	margin-top:30px;
@@ -123,13 +123,13 @@ a:hover{/*하이퍼링크 된곳 마우스 오버시*/
 	padding:3px; text-align:center;
 }
 #aGongji_t{
-	margin:20px 0 0 17px;
+	margin:17px 0 0 20px;
 }
 #aGongji_t th{
 	background:#ccc; border-radius:15px;
 }
 #aGongji_menu{
-	margin:25px 0 0 75px;
+	margin:25px 0 0 90px;
 }
 
 /*admin_gongji_list.jsp ui */
@@ -145,7 +145,7 @@ a:hover{/*하이퍼링크 된곳 마우스 오버시*/
 	font-size:20px; background:pink; border-radius:15px;
 	text-align:center; padding:3px;
 }
-#aGongji_t{
+#aGongji_t3{
 	margin:10px 0 0 15px;
 }
 #bList_paging{
@@ -167,44 +167,62 @@ a:hover{/*하이퍼링크 된곳 마우스 오버시*/
 	border-radius:15px; width:140px; font-size:16px;
 }
 
-/* admin_gongji_cont.jsp */
+/*admin_gongji_cont.jsp ui*/
 #aGongji_cont{
-	width: 370px;
-	padding: 10px;
-	border: 1px solid blue;
-	border-radius:10px;
-	box-shadow:10px 10px 10px #ccc;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top: 60px;
+	width:370px; padding:10px;
+	border:1px solid blue;
+	border-radius:20px;
+	box-shadow:20px 20px 20px #ccc;
+	margin-left:auto; margin-right:auto;
+	margin-top:60px;
 }
-/* admin_gongji_del.jsp ui */
-#aGDel_wrap{
-	width: 300px;
-	height: 150px;
-	border: 1px solid blue;
-	border-radius:10px;
-	box-shadow:10px 10px 10px #ccc;
-	margin-left: auto;
-	margin-right: auto;
+#aGongji_cont .aGongji_title{
+	width:160px; padding:3px;
+	background:pink; border-radius:15px;
+	text-align:center; font-size:20px;
+	margin:15px 0 0 100px;
+}
+#aGongji_t2{
+	margin:15px 0 0 35px;
+}
+#aGongji_menu2{
+	margin:20px 0 0 150px;
+}
+
+/*admin_gongji_del.jsp ui*/
+#aGDeL_wrap{
+	width:300px; height:150px;
+	border:1px solid blue; border-radius:20px;
+	box-shadow:20px 20px 20px #ccc;
+	margin-left:auto; margin-right:auto;
 	margin-top:100px;
 }
-#aGDel_wrap .aGDel_title{
-	margin: 23px 0 0 70px;
-	width: 170px;
-	font-size: 20px;
-	text-algin:center;
-	background: pink;
-	border-radius:20px;
-	padding: 3px;
+#aGDeL_wrap .aGDeL_title{
+	margin:23px 0 0 60px; width:170px; font-size:20px;
+	text-align:center; background:pink;
+	border-radius:20px; padding:3px;
 }
-#aGDel_t{
-	margin: 15px 0 0 45px;
+#aGDeL_t{
+	margin:15px 0 0 45px;
 }
-#aGDel_t th{
-	background: pink;
-	border-radius:10px;
+#aGDeL_t th{
+	background:pink; border-radius:15px;
 }
-#aGDel_menu{
+#aGDeL_menu{
 	margin:15px 0 0 70px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
