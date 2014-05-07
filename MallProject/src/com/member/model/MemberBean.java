@@ -1,5 +1,7 @@
 package com.member.model;
 
+import java.sql.Timestamp;
+
 public class MemberBean {
 private String MEMBER_ID;
 private String MEMBER_PW;
@@ -14,7 +16,8 @@ private String MEMBER_ZIPCODE;
 private String MEMBER_ADDR1;
 private String MEMBER_ADDR2;
 private int MEMBER_ADMIN;
-private String MEMBER_JOIN_DATE;
+private Timestamp MEMBER_JOIN_DATE;
+
 public String getMEMBER_ID() {
 	return MEMBER_ID;
 }
@@ -93,11 +96,11 @@ public int getMEMBER_ADMIN() {
 public void setMEMBER_ADMIN(int mEMBER_ADMIN) {
 	MEMBER_ADMIN = mEMBER_ADMIN;
 }
-public String getMEMBER_JOIN_DATE() {
+public Timestamp getMEMBER_JOIN_DATE() {
 	return MEMBER_JOIN_DATE;
 }
-public void setMEMBER_JOIN_DATE(String mEMBER_JOIN_DATE) {
-	MEMBER_JOIN_DATE = mEMBER_JOIN_DATE.substring(0, 10);
+public void setMEMBER_JOIN_DATE(Timestamp  mEMBER_JOIN_DATE) {
+	MEMBER_JOIN_DATE = mEMBER_JOIN_DATE;
 }
 
 

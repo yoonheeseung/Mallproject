@@ -15,7 +15,7 @@ public class MemberJoinAction implements Action{
 			HttpServletResponse response) throws Exception {
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("./member/loginForm.jsp");
+		forward.setPath("./member/member_join.jsp");
 		return forward;
 	}
 

@@ -12,7 +12,7 @@
 	<tr>
 	<td colspan=2>
 	<!-- 회원가입 -->
-	<form id="joinform" name="joinform" action="./MemberJoinAction.me" method="post" onsubmit="return check()">		
+	<form id="joinform" name="joinform" action="./MemberJoin.me" method="post" onsubmit="return check()">		
 	<p align="center">	
 	<table id="form_t">
 	<tr>
