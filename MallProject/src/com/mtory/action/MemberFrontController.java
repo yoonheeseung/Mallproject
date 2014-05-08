@@ -24,12 +24,13 @@ public class MemberFrontController extends HttpServlet{
 		 
 		 Properties prop=new Properties();
 		 FileInputStream fis=
+				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/Member.properties");
 //				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/conf/file/props/Member.properties");
-		  new FileInputStream("C:/Users/admin/git/MyProject/MallProject/src/conf/file/props/Member.properties");
+//		  new FileInputStream("C:/Users/admin/git/MyProject/MallProject/src/conf/file/props/Member.properties");
 		 prop.load(fis);
 		 fis.close();
 		 String value=prop.getProperty(command);
-		 
+		 System.out.println("value:"+value);
 		 if(value.substring(0,7).equals("execute")){
 			 try {
 				StringTokenizer st=new StringTokenizer(value,"|");

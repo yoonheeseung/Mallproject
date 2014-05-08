@@ -20,6 +20,7 @@ public class MemberDAO {
 	String instSql="insert into member values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	String userChekSql="select MEMBER_PW from member where MEMBER_ID=?";
 	String isAdmSql="select MEMBER_ADMIN from MEMBER where MEMBER_ID=?";
+	String memberCheckSql="select MEMBER_ID from member where MEMBER_ID=? ";
 	
 	public MemberDAO() {
 		try{
@@ -122,6 +123,34 @@ public class MemberDAO {
 			}catch(Exception ex) {}
 		}
 		return false;
+	}
+
+	public int confirmId(String id) {
+		int x=-1;
+		
+		try{
+			pstmt=con.prepareStatement(memberCheckSql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				x=1;
+			}else{
+				x=-1;
+			}
+			
+			return x;
+		}catch(Exception e){
+			e.printStackTrace();
+		}	finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			}catch(Exception ex) {}
+		}
+		
+		return -1;
 	}
 
 

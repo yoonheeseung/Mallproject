@@ -95,7 +95,7 @@ function openConfirmId(joinform){
 		return false;
 	}
 	open(url, "confirm", "toolbar=no,location=no,status=no,menubar=no,"+
-						 "scrollbars=no,resizable=no,width=400,height=200");
+	 "scrollbars=no,resizable=no,width=400,height=200");
 }
 
 function openZipcode(joinform){			

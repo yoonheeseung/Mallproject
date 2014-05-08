@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
@@ -20,7 +20,7 @@
 
 <html>
 <head>
-<title>¼îÇÎ¸ô</title>
+<title>ì‡¼í•‘ëª°</title>
 <script>
 function searchPrice(item,searchprice) {
 	if (searchprice!="all") {
@@ -41,31 +41,31 @@ function searchPrice(item,searchprice) {
 		<tr valign="middle">
 			<td height="50" width="700" align="right" valign="middle" 
 				colspan="4">
-			-»óÇ° ¸ñ·Ï-&nbsp;
+			-ìƒí’ˆ ëª©ë¡-&nbsp;
 			<a href="javascript:searchPrice('<%=category%>','1~3')">
-			[3¸¸¿ø ¹Ì¸¸]
+			[3ë§Œì› ë¯¸ë§Œ]
 			</a>
 			<a href="javascript:searchPrice('<%=category%>','3~5')">
-			[3~5¸¸¿ø]
+			[3~5ë§Œì›]
 			</a>
 			<a href="javascript:searchPrice('<%=category%>','5~7')">
-			[5~7¸¸¿ø]
+			[5~7ë§Œì›]
 			</a>
 			<a href="javascript:searchPrice('<%=category%>','7~10')">
-			[7~10¸¸¿ø]
+			[7~10ë§Œì›]
 			</a>
 			<a href="javascript:searchPrice('<%=category%>','10')">
-			[10¸¸¿ø ÀÌ»ó]
+			[10ë§Œì› ì´ìƒ]
 			</a>
 			<a href="javascript:searchPrice('<%=category%>','all')">
-			[ÀüÃ¼ º¸±â]
+			[ì „ì²´ ë³´ê¸°]
 			</a>
 			</td>
 		</tr>
 		
 		<tr>
 		<td valign="top">
-		<!-- »óÇ° ¸®½ºÆ® -->
+		<!-- ìƒí’ˆ ë¦¬ìŠ¤íŠ¸ -->
 		<table border="0">
 		<tr>	   
 		   <c:choose> 
@@ -73,7 +73,7 @@ function searchPrice(item,searchprice) {
 					"${requestScope.itemList[0].GOODS_NUM==null}">
 					<tr>
 					<td width="700" height="300" align="center">
-					µî·ÏµÈ ±ÛÀÌ ¾ø½À´Ï´Ù.
+					ë“±ë¡ëœ ê¸€ì´ ì—†ìŠµë‹ˆë‹¤.
 					</td>
 					</tr>
 				</c:when>
@@ -120,7 +120,7 @@ function searchPrice(item,searchprice) {
 			 		width="130" height="130" border="0"/>
 			 	<br/>${item.GOODS_NAME}<br/>
 				</a>
-				<br/><b>${item.GOODS_PRICE}¿ø</b>
+				<br/><b>${item.GOODS_PRICE}ì›</b>
 				</div>
 				<br>
 				</td>
@@ -129,17 +129,17 @@ function searchPrice(item,searchprice) {
 			</c:choose>
 		</tr>
 		</table>
-		<!-- »óÇ° ¸®½ºÆ® -->
+		<!-- ìƒí’ˆ ë¦¬ìŠ¤íŠ¸ -->
 		</td>
 		</tr>
 		<tr>
 		<td height="20" colspan="4" align="center">		
-		<!-- ÆäÀÌÂ¡ -->
+		<!-- í˜ì´ì§• -->
 		<%
 		if (count>0) {
 			if (startPage>10) { %>
 			<a href="GoodsList.go?item=<%=category%>&
-					page=<%=startPage-1%>">[ÀÌÀü]</a>
+					page=<%=startPage-1%>">[ì´ì „]</a>
 			<% }
 			for (int i=startPage;i<=endPage ; i++) { 
 				if (i==nowpage) {   %>
@@ -158,12 +158,12 @@ function searchPrice(item,searchprice) {
 			}
 			if (endPage<pageCount) { %>
 			<a href="GoodsList.go?item=<%=category%>
-					&page=<%=endPage+1%>">[´ÙÀ½]</a>
+					&page=<%=endPage+1%>">[ë‹¤ìŒ]</a>
 			<%
 			}
 		}
 		%>			
-		<!-- ÆäÀÌÂ¡ -->
+		<!-- í˜ì´ì§• -->
 		</td>
 		</tr>
 		</table>

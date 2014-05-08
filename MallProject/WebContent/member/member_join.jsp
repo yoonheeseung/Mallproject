@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <html>
 <head>
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/mjoin.js"></script>
-<link rel="stylesheet" style="text/css" href="./css/mjoin.css">
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/mjoin.js"></script>
+<link rel="stylesheet" style="text/css" href="../css/mjoin.css">
 
 <title>쇼핑몰</title>
 </head>
