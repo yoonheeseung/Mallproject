@@ -3,6 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
+	
 	<display-name>MallProject</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
@@ -17,11 +18,9 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>AdminOrderFrontController
-		</display-name>
+		<display-name>AdminOrderFrontController</display-name>
 		<servlet-name>AdminOrderFrontController</servlet-name>
-		<servlet-class>com.mtory.action.AdminOrderFrontController
-		</servlet-class>
+		<servlet-class>com.mtory.action.AdminOrderFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AdminOrderFrontController</servlet-name>
@@ -31,11 +30,9 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>OrderFrontController
-		</display-name>
+		<display-name>OrderFrontController</display-name>
 		<servlet-name>OrderFrontController</servlet-name>
-		<servlet-class>com.order.action.OrderFrontController
-		</servlet-class>
+		<servlet-class>com.order.action.OrderFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>OrderFrontController</servlet-name>
@@ -45,11 +42,9 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>MemberFrontController
-		</display-name>
+		<display-name>MemberFrontController</display-name>
 		<servlet-name>MemberFrontController</servlet-name>
-		<servlet-class>com.member.action.MemberFrontController
-		</servlet-class>
+		<servlet-class>com.mtory.action.MemberFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MemberFrontController</servlet-name>
@@ -59,11 +54,9 @@
 	<servlet>
 		<description>
 		</description>
-		<display-name>BasketFrontController
-		</display-name>
+		<display-name>BasketFrontController</display-name>
 		<servlet-name>BasketFrontController</servlet-name>
-		<servlet-class>com.basket.action.BasketFrontController
-		</servlet-class>
+		<servlet-class>com.basket.action.BasketFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>BasketFrontController</servlet-name>
@@ -73,11 +66,9 @@
 	
 		<description>
 		</description>
-		<display-name>GoodsFrontController
-		</display-name>
+		<display-name>GoodsFrontController</display-name>
 		<servlet-name>GoodsFrontController</servlet-name>
-		<servlet-class>com.goods.action.GoodsFrontController
-		</servlet-class>
+		<servlet-class>com.goods.action.GoodsFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GoodsFrontController</servlet-name>

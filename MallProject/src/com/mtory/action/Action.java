@@ -1,4 +1,4 @@
-package net.member.action;
+package com.mtory.action;
 
 import javax.servlet.http.*;
 

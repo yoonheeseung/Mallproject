@@ -3,6 +3,7 @@ package com.member.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,6 +18,8 @@ public class MemberDAO {
 	ResultSet rs=null;
 	
 	String instSql="insert into member values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	String userChekSql="select MEMBER_PW from member where MEMBER_ID=?";
+	String isAdmSql="select MEMBER_ADMIN from MEMBER where MEMBER_ID=?";
 	
 	public MemberDAO() {
 		try{
@@ -60,6 +63,64 @@ public class MemberDAO {
 			}catch(Exception ex) {}
 		}
 		
+		return false;
+	}
+
+	public int userCheck(String id, String pass) {
+		String sql=null;
+		int x=-1;
+		
+		try{
+			pstmt=con.prepareStatement(userChekSql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				String memberpw=rs.getString("MEMBER_PW");	
+				if(memberpw.equals(pass)){
+					x=1;
+				}else{
+					x=0;
+				}
+			}else{
+				x=-1;
+			}
+			
+			return x;
+		}catch(Exception e){
+			e.printStackTrace();
+		}	finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			}catch(Exception ex) {}
+		}
+		
+		return -1;
+	}
+
+	public boolean isAdmin(String id) {
+		int member_admin=0;
+		try {
+			pstmt=con.prepareStatement(isAdmSql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			member_admin=rs.getInt("MEMBER_ADMIN");
+			if(member_admin==1){
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			}catch(Exception ex) {}
+		}
 		return false;
 	}
 
