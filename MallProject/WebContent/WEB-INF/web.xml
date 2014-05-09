@@ -16,9 +16,6 @@
 
 
 	<servlet>
-		<description>
-		</description>
-		<display-name>AdminOrderFrontController</display-name>
 		<servlet-name>AdminOrderFrontController</servlet-name>
 		<servlet-class>com.mtory.action.AdminOrderFrontController</servlet-class>
 	</servlet>
@@ -28,9 +25,6 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<description>
-		</description>
-		<display-name>OrderFrontController</display-name>
 		<servlet-name>OrderFrontController</servlet-name>
 		<servlet-class>com.order.action.OrderFrontController</servlet-class>
 	</servlet>
@@ -40,9 +34,6 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<description>
-		</description>
-		<display-name>MemberFrontController</display-name>
 		<servlet-name>MemberFrontController</servlet-name>
 		<servlet-class>com.mtory.action.MemberFrontController</servlet-class>
 	</servlet>
@@ -52,9 +43,6 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<description>
-		</description>
-		<display-name>BasketFrontController</display-name>
 		<servlet-name>BasketFrontController</servlet-name>
 		<servlet-class>com.basket.action.BasketFrontController</servlet-class>
 	</servlet>
@@ -63,10 +51,6 @@
 		<url-pattern>*.ba</url-pattern>
 	</servlet-mapping>
 	<servlet>
-	
-		<description>
-		</description>
-		<display-name>GoodsFrontController</display-name>
 		<servlet-name>GoodsFrontController</servlet-name>
 		<servlet-class>com.goods.action.GoodsFrontController</servlet-class>
 	</servlet>
@@ -76,10 +60,6 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<description>
-		</description>
-		<display-name>AdminGoodsFrontController
-		</display-name>
 		<servlet-name>AdminGoodsFrontController</servlet-name>
 		<servlet-class>admin.goods.action.AdminGoodsFrontController
 		</servlet-class>

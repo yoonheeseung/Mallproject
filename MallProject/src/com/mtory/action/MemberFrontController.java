@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @SuppressWarnings("serial")
 public class MemberFrontController extends HttpServlet{
 	public void service(HttpServletRequest request, HttpServletResponse response)
@@ -24,9 +25,11 @@ public class MemberFrontController extends HttpServlet{
 		 
 		 Properties prop=new Properties();
 		 FileInputStream fis=
-				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/Member.properties");
+//				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/Member.properties");
 //				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/conf/file/props/Member.properties");
-//		  new FileInputStream("C:/Users/admin/git/MyProject/MallProject/src/conf/file/props/Member.properties");
+	  new FileInputStream("C:/Users/admin/git/MyProject/MallProject/build/classes/conf/file/props/Member.properties");
+		 
+		 					   
 		 prop.load(fis);
 		 fis.close();
 		 String value=prop.getProperty(command);

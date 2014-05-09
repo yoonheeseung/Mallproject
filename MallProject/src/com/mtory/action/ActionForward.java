@@ -12,6 +12,7 @@ public class ActionForward {
 		return path;
 	}
 	
+	
 	public void setRedirect(boolean b){
 		isRedirect=b;
 	}

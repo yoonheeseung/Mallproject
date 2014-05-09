@@ -23,7 +23,7 @@ function windowclose(){
 	</tr>
 </table>
 
-<form action="./MemberIDCheckAction.me" method="post" name="checkForm" >
+<form action="./MemberIDchk.me" method="post" name="checkForm" >
 <table width="360" border="0" cellspacing="0" cellpadding="5">
 	<tr>
 	<td align="center">

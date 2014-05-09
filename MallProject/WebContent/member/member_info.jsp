@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=euc-kr" %>
-<%@ page import="net.member.db.MemberBean" %>
+<%@ page import="com.member.model.MemberBean" %>
 <%
 	MemberBean member=(MemberBean)request.getAttribute("member");
 	String MEMBER_ZIPCODE=member.getMEMBER_ZIPCODE();
