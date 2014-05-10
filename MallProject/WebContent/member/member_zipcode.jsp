@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=euc-kr"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%
 	String addr="";
@@ -11,7 +11,7 @@
 
 <html>
 <head>
-<title>¼îÇÎ¸ô</title>
+<title>ì‡¼í•‘ëª°</title>
 <script>
 function setZipcode(zip1,zip2,addr){
 	opener.document.forms[0].MEMBER_ZIPCODE1.value=zip1;
@@ -26,7 +26,7 @@ function setZipcode(zip1,zip2,addr){
 <table width="370" border="0" cellspacing="0" cellpadding="5">
 	<tr align="center">
 		<td align="center">
-			<font color="#ff4500">-¿ìÆí¹øÈ£ °Ë»ö-</font><br>
+			<font color="#ff4500">-ìš°í¸ë²ˆí˜¸ ê²€ìƒ‰-</font><br>
 		</td>
 	</tr>
 </table>
@@ -34,10 +34,10 @@ function setZipcode(zip1,zip2,addr){
 <table width="370" border="0" cellspacing="0" cellpadding="5">
 	<tr align="center">
 		<td align="center">
-			<font size="2">Áö¿ª¸í : </font>
+			<font size="2">ì§€ì—­ëª… : </font>
 			<input type="text" name="dong"/>
-			<input type="submit" value="°Ë»ö"><br>
-			<font size="2">µ¿À» ÀÔ·ÂÇÏ¼¼¿ä.(¿¹:¹æ¹è, ¿øÃµ, 2±ÛÀÚ ÀÌ»óÀÔ·Â)</font>
+			<input type="submit" value="ê²€ìƒ‰"><br>
+			<font size="2">ë™ì„ ì…ë ¥í•˜ì„¸ìš”.(ì˜ˆ:ë°©ë°°, ì›ì²œ, 2ê¸€ì ì´ìƒì…ë ¥)</font>
 		</td>
 	</tr>
 </table>
@@ -45,7 +45,7 @@ function setZipcode(zip1,zip2,addr){
 <br>
 <table width="370" border="0" cellspacing="0" cellpadding="5">
 <tr height="35">
-	<td align="center" colspan="2">-°Ë»ö°á°ú-</td>
+	<td align="center" colspan="2">-ê²€ìƒ‰ê²°ê³¼-</td>
 </tr>
 <%	
 	if(zipcodeList!=null && zipcodeList.size()!=0){	
@@ -70,7 +70,7 @@ function setZipcode(zip1,zip2,addr){
 <%		}
 	}else{ %>
 <tr>
-	<td colspan="2" align="center">°Ë»ö °á°ú°¡ ¾ø½À´Ï´Ù.</td>
+	<td colspan="2" align="center">ê²€ìƒ‰ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.</td>
 </tr>
 <%	}%>
 </table>

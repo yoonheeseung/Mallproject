@@ -27,7 +27,8 @@ public class MemberFrontController extends HttpServlet{
 		 FileInputStream fis=
 //				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/Member.properties");
 //				 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/src/conf/file/props/Member.properties");
-	  new FileInputStream("C:/Users/admin/git/MyProject/MallProject/build/classes/conf/file/props/Member.properties");
+//	  new FileInputStream("C:/Users/admin/git/MyProject/MallProject/build/classes/conf/file/props/Member.properties");
+		 new FileInputStream("C:/Documents and Settings/unisung/git/MyProject/MallProject/build/classes/conf/file/props/Member.properties");
 		 
 		 					   
 		 prop.load(fis);

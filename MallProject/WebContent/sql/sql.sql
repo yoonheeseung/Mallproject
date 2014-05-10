@@ -87,3 +87,35 @@ create sequence goodsorder_no_seq
 increment by 1 start with 1 nocache;
 
 select count(*) from zipcode;
+
+select * from member;
+
+update member set member_admin = 1 where member_id='admin';
+
+		findQuery.append("SELECT * FROM (SELECT GOODS_NUM,");
+			findQuery.append("GOODS_CATEGORY, GOODS_NAME, ");
+			findQuery.append("GOODS_CONTENT,GOODS_PRICE,GOODS_IMAGE,");
+			findQuery.append("GOODS_BEST,GOODS_DATE, rownum r FROM ");
+			findQuery.append("GOODS WHERE ");
+			
+			if (item.equals("new_item")) {
+				findQuery.append("GOODS_DATE>=GOODS_DATE-7");
+			}else if (item.equals("hit_item")) { 
+				findQuery.append("GOODS_BEST=1 ");
+			}else{
+				findQuery.append("GOODS_CATEGORY=? ");
+			}
+			findQuery.append("ORDER BY GOODS_NUM DESC) ");
+			findQuery.append("WHERE r>=? AND r<=? ");
+			
+select * from 
+(select goods_num, goods_category,goods_name,goods_contents,goods_price,goods_image,goods_best,goods_date, rownum r 
+   from goods 
+  where goods_date>=goods_date-7
+   )
+			
+select MEMBER_ADMIN from MEMBER where MEMBER_ID='admin'		
+
+select * from user_tables;
+
+select * from goods;

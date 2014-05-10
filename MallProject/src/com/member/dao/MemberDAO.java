@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -67,6 +69,7 @@ public class MemberDAO {
 		return false;
 	}
 
+	//회원여부확인
 	public int userCheck(String id, String pass) {
 		String sql=null;
 		int x=-1;
@@ -104,6 +107,7 @@ public class MemberDAO {
 	public boolean isAdmin(String id) {
 		int member_admin=0;
 		try {
+			con=ds.getConnection();
 			pstmt=con.prepareStatement(isAdmSql);
 			pstmt.setString(1, id);
 			rs=pstmt.executeQuery();
@@ -151,5 +155,43 @@ public class MemberDAO {
 		}
 		
 		return -1;
+	}
+
+	public List searchZipcode(String searchdong) {
+			String sql="select * from zipcode where dong like ?";
+			List zipcodeList=new ArrayList();
+			System.out.println("searchdong: "+searchdong);
+			try{
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, "%"+searchdong+"%");
+				rs=pstmt.executeQuery();
+				
+				while(rs.next()){
+					String sido=rs.getString("sido");
+					String gugun=rs.getString("gugun");
+					String dong=rs.getString("dong");  
+					String ri=rs.getString("ri"); 
+					String bunji=rs.getString("bunji");
+					if(ri == null) ri="";
+					if(bunji == null) bunji="";
+					
+					String zipcode=rs.getString("zipcode");
+					String addr=sido+ " "+gugun+ " "+dong+ " "+ri+ " "+bunji;
+					
+					zipcodeList.add(zipcode+","+addr);
+				}
+				
+				return zipcodeList;
+			} catch (SQLException e){
+				e.printStackTrace();
+			}
+			finally{
+				try{
+					if(rs!=null)rs.close();
+					if(pstmt!=null)pstmt.close();
+					if(con!=null)con.close();
+				}catch(Exception ex) {}
+			}
+			return null;
 	}
 }

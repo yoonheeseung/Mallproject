@@ -61,7 +61,7 @@
 	
 	<servlet>
 		<servlet-name>AdminGoodsFrontController</servlet-name>
-		<servlet-class>admin.goods.action.AdminGoodsFrontController
+		<servlet-class>com.mtory.action.AdminGoodsFrontController
 		</servlet-class>
 	</servlet>
 	<servlet-mapping>

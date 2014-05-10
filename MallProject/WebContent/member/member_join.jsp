@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <html>
 <head>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/mjoin.js"></script>
-<link rel="stylesheet" style="text/css" href="../css/mjoin.css">
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/mjoin.js"></script>
+<link rel="stylesheet" style="text/css" href="./css/mjoin.css">
 
 <title>쇼핑몰</title>
 </head>
@@ -12,7 +12,7 @@
 	<tr>
 	<td colspan=2>
 	<!-- 회원가입 -->
-	<form id="joinform" name="joinform" action="./MemberJoin.me" method="post" onsubmit="return check()">		
+	<form id="joinform" name="joinform" action="./memberJoinOk.me" method="post" onsubmit="return check()">		
 	<p align="center">	
 	<table id="form_t">
 	<tr>
@@ -149,6 +149,7 @@
 			<tr>
 				<td align="center">
 					<br/><input type="submit" value="확 인" />
+					     <input type="button" value="뒤로" onclick="history.go(-1)">
 				</td>
 			</tr>
 		</table>
