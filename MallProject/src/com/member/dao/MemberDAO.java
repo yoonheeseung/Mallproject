@@ -23,7 +23,8 @@ public class MemberDAO {
 	String userChekSql="select MEMBER_PW from member where MEMBER_ID=?";
 	String isAdmSql="select MEMBER_ADMIN from MEMBER where MEMBER_ID=?";
 	String memberCheckSql="select MEMBER_ID from member where MEMBER_ID=? ";
-	
+	String memberFindSql="select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where MEMBER_NAME=?";
+		
 	public MemberDAO() {
 		try{
 			Context initCtx=new InitialContext();
@@ -194,4 +195,35 @@ public class MemberDAO {
 			}
 			return null;
 	}
+
+	//회원검색
+	public MemberBean findId(String name, String jumin1, String jumin2) {
+		MemberBean member=new MemberBean();
+		try{
+			pstmt=con.prepareStatement(memberFindSql);
+			pstmt.setString(1, name);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				String memberjumin1=rs.getString("MEMBER_JUMIN1");
+				String memberjumin2=rs.getString("MEMBER_JUMIN2");
+				System.out.println("memberjumin1:"+memberjumin1);
+				System.out.println("memberjumin2:"+memberjumin2);
+				if(memberjumin1.equals(jumin1) && memberjumin2.equals(jumin2)){
+					member.setMEMBER_ID(rs.getString("MEMBER_ID"));
+					member.setMEMBER_PW(rs.getString("MEMBER_PW"));
+					return member;
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}	finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			}catch(Exception ex) {}
+		}
+		return null;
+	}//findId()
 }

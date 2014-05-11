@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="com.member.model.MemberBean" %>
 <%
 	MemberBean member=(MemberBean)request.getAttribute("member");
@@ -6,12 +6,12 @@
 	String MEMBER_EMAIL=member.getMEMBER_EMAIL();
 	String MEMBER_EMAIL_GET=member.getMEMBER_EMAIL_GET();
 	
-	String[] zipcodes=MEMBER_ZIPCODE.split("-");	//"-"·Î ±¸ºĞÇÔ.
-	String[] email=MEMBER_EMAIL.split("@");	//"@"·Î ±¸ºĞÇÔ.
+	String[] zipcodes=MEMBER_ZIPCODE.split("-");	//"-"ë¡œ êµ¬ë¶„í•¨.
+	String[] email=MEMBER_EMAIL.split("@");	//"@"ë¡œ êµ¬ë¶„í•¨.
 %>
 <html>
 <head>
-<title>¼îÇÎ¸ô</title>
+<title>ì‡¼í•‘ëª°</title>
 <script>
 function check(form){
 	var pass1=infoform.MEMBER_PW.value;
@@ -26,54 +26,54 @@ function check(form){
 	var forms = document.getElementById("infoform");
 
 	if ((forms.MEMBER_NAME.value=="")||(forms.MEMBER_NAME.value.length<=1)){
-		alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		forms.MEMBER_NAME.focus();
         return false;
 	}
 	if(pass1.length == 0){
-		alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		infoform.MEMBER_PW.focus();
 		return false;
 	} 
 	if(pass1 != pass2){
-		alert("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+		alert("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 		infoform.MEMBER_PW.value="";
 		infoform.MEMBER_PW2.value="";
 		infoform.MEMBER_PW.focus();
 		return false;
 	} 				 
 	if(email1.length == 0 || email2.length == 0){
-		alert("ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		infoform.MEMBER_EMAIL1.focus();
 		return false;
 	}
 	if(tel.length == 0){
-		alert("Áı ÀüÈ­¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ì§‘ ì „í™”ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		infoform.MEMBER_PHONE.focus();
 		return false;
 	} 
 	if((forms.MEMBER_ZIPCODE1.value=="")||(forms.MEMBER_ZIPCODE1.value.length<3)){
-		alert("¿ìÆí¹øÈ£ ¾ÕÀÇ 3ÀÚ¸®¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ìš°í¸ë²ˆí˜¸ ì•ì˜ 3ìë¦¬ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
       	forms.MEMBER_ZIPCODE1.focus();
          	return false;
  		}
  	if((forms.MEMBER_ZIPCODE2.value=="")||(forms.MEMBER_ZIPCODE2.value.length<3)){
-		alert("¿ìÆí¹øÈ£ µÚÀÇ 3ÀÚ¸® ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ìš°í¸ë²ˆí˜¸ ë’¤ì˜ 3ìë¦¬ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
       	forms.MEMBER_ZIPCODE2.focus();
         return false;
 	}   
 	if(addr.length == 0){
-		alert("Áı ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ì§‘ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		infoform.MEMBER_ADDR1.focus();
 		return false;
 	} 
 	if(addr_about.length == 0){
-		alert("»ó¼¼ ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ìƒì„¸ ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		infoform.MEMBER_ADDR2.focus();
 		return false;
 	} 
 	if(phone.length == 0){
-		alert("ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		infoform.MEMBER_MOBILE.focus();
 		return false;
 	}
@@ -96,7 +96,7 @@ function gNumCheck(){
 }
 
 function out(){
-	var Answer = confirm("È¸¿øÅ»Åğ¸¦ ÇÏ½Ã°Ú½À´Ï±î?");
+	var Answer = confirm("íšŒì›íƒˆí‡´ë¥¼ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
  		if (Answer == true){ 
  		location.href = "./MemberOut.me";
  	}
@@ -107,14 +107,14 @@ function out(){
 <table width="960" cellspacing="0" cellpadding="0" border="0" align="center">
 <tr>
 <td colspan=2>
-<!-- °³ÀÎÁ¤º¸ ¼öÁ¤ -->
+<!-- ê°œì¸ì •ë³´ ìˆ˜ì • -->
 <p align="center">
 <form action="./MemberModifyAction_2.me" method="post" name="infoform" 
 		onsubmit="return check(this)">
 <table border="1" width="80%" height="80%">
 	<tr>
 		<td width="17%" bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ÀÌ¸§</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ì´ë¦„</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -132,7 +132,7 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;ºñ¹Ğ¹øÈ£</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;ë¹„ë°€ë²ˆí˜¸</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -141,7 +141,7 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ºñ¹Ğ¹øÈ£ È®ÀÎ</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ë¹„ë°€ë²ˆí˜¸ í™•ì¸</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -152,12 +152,12 @@ function out(){
 		<td bgcolor="#f5f5f5">&nbsp;</td>
 		<td>
 		<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;
-		(¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£´Â ¹®ÀÚ¿Í ¼ıÀÚ¸¦ Á¶ÇÕÇÏ¿© 2~12ÀÚ¸®·Î ¸¸µé¾î ÁÖ¼¼¿ä)</font>
+		(ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ëŠ” ë¬¸ìì™€ ìˆ«ìë¥¼ ì¡°í•©í•˜ì—¬ 2~12ìë¦¬ë¡œ ë§Œë“¤ì–´ ì£¼ì„¸ìš”)</font>
 		</td>
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ÁÖ¹Îµî·Ï¹øÈ£</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;&nbsp;
@@ -166,7 +166,7 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ÀÌ¸ŞÀÏ ÁÖ¼Ò</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ì´ë©”ì¼ ì£¼ì†Œ</font>
 		</td>
 		<td>
 		&nbsp;&nbsp;&nbsp;
@@ -178,22 +178,22 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;¸ŞÀÏ ¼ö½Å ¿©ºÎ</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ë©”ì¼ ìˆ˜ì‹  ì—¬ë¶€</font>
 		</td>
 		<td>
 		&nbsp;&nbsp;&nbsp;
 		<input type="radio" name="MEMBER_EMAIL_GET" 
 		value="YES" <%if(MEMBER_EMAIL_GET.equals("YES")){%>checked<%} %>/>
-		<font size="2">¼ö½Å</font>
+		<font size="2">ìˆ˜ì‹ </font>
 		&nbsp;&nbsp;
 		<input type="radio" name="MEMBER_EMAIL_GET" 
 		value="NO" <%if(MEMBER_EMAIL_GET.equals("NO")){%>checked<%} %>/>
-		<font size="2">¼ö½Å ¾ÈÇÔ</font>
+		<font size="2">ìˆ˜ì‹  ì•ˆí•¨</font>
 		</td>
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;Áı ÀüÈ­</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ì§‘ ì „í™”</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -203,7 +203,7 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;¿ìÆí¹øÈ£</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ìš°í¸ë²ˆí˜¸</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -214,12 +214,12 @@ function out(){
 				size="6" onkeypress="gNumCheck()" 
 				maxlength="3" value="<%=zipcodes[1].trim() %>" />&nbsp;&nbsp;
 			<input type="button" name="zipcode" 
-				value="¿ìÆí¹øÈ£ °Ë»ö" onclick="openzipcode(this.form)" />
+				value="ìš°í¸ë²ˆí˜¸ ê²€ìƒ‰" onclick="openzipcode(this.form)" />
 		</td>
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;Áı ÁÖ¼Ò</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ì§‘ ì£¼ì†Œ</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -229,7 +229,7 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;»ó¼¼ ÁÖ¼Ò</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ìƒì„¸ ì£¼ì†Œ</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -239,7 +239,7 @@ function out(){
 	</tr>
 	<tr>
 		<td bgcolor="#f5f5f5">
-			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;ÈŞ´ëÆù</font>
+			<font size="2">&nbsp;&nbsp;&nbsp;&nbsp;íœ´ëŒ€í°</font>
 		</td>
 		<td>
 			&nbsp;&nbsp;&nbsp;
@@ -252,13 +252,13 @@ function out(){
 <table width="80%">
 	<tr>
 		<td align="center">
-			<br/><input type="submit" value="È¸¿øÁ¤º¸ ¼öÁ¤" />
-			<input type="button" value="È¸¿ø Å»Åğ" name="bt" onclick="out()" />
+			<br/><input type="submit" value="íšŒì›ì •ë³´ ìˆ˜ì •" />
+			<input type="button" value="íšŒì› íƒˆí‡´" name="bt" onclick="out()" />
 		</td>
 	</tr>
 </table>
 </form>
-<!-- °³ÀÎÁ¤º¸ ¼öÁ¤ -->
+<!-- ê°œì¸ì •ë³´ ìˆ˜ì • -->
 </td>
 </tr>	
 </table>

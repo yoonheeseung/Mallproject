@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <html>
 <head>
 <script>
@@ -7,17 +7,17 @@ function formSubmit(){
 	
 	if ((forms.MEMBER_NAME.value=="") ||
 		(forms.MEMBER_NAME.value.length<=1)){
-		alert("�̸��� ��Ȯ�� �Է��� �ֽʽÿ�.");
+		alert("이름을 정확히 입력해 주십시오.");
 		forms.MEMBER_NAME.focus();
         return false;
 	}else if((forms.MEMBER_JUMIN1.value=="") ||
 			(forms.MEMBER_JUMIN1.value.length<6)){
-		alert("�ֹε�Ϲ�ȣ�� ��Ȯ�� �Է��� �ֽʽÿ�.");
+		alert("주민등록번호를 정확히 입력해 주십시오.");
    		forms.MEMBER_JUMIN1.focus();
         return false;
  	}else if((forms.MEMBER_JUMIN2.value=="")||
  			(forms.MEMBER_JUMIN2.value.length<7)){
-		alert("�ֹε�Ϲ�ȣ�� ��Ȯ�� �Է��� �ֽʽÿ�.");
+		alert("주민등록번호를 정확히 입력해 주십시오.");
       	forms.MEMBER_JUMIN2.focus();
         return false;
 	}
@@ -30,22 +30,22 @@ function formSubmit(){
 <table width="450px" height="20px">
 	<tr>
 		<td align="left">
-			<b>���̵�/��й�ȣ ã��</b>
+			<b>아이디/비밀번호 찾기</b>
 		</td>
 	</tr>
 </table>	
-<form action="./MemberFindAction.me" method="post" name="findform" 
+<form action="./MemberFindOk.me" method="post" name="findform" 
 	onSubmit="return formSubmit();">
 <table width="450px" cellspacing="0" cellpadding="0" border="0">
 <thead>
 	<font size="2">				
 	&nbsp;&nbsp;&nbsp;&nbsp;
-	�̸��� �ֹε�Ϲ�ȣ�� ��Ȯ�� �Է����ּ���.
+	이름과 주민등록번호를 정확히 입력해주세요.
 	<br/><br/><br/><br/></font>
 </thead>
 <tr>
 	<td height="29" bgcolor="#F3F3F3">
-		<font size="2">�̸�</font>
+		<font size="2">이름</font>
 	</td>
 	<td>
 		&nbsp;
@@ -57,7 +57,7 @@ function formSubmit(){
 </tr>
 <tr>
 	<td height="29" bgcolor="#F3F3F3">
-		<font size="2">�ֹε�Ϲ�ȣ</font>
+		<font size="2">주민등록번호</font>
 	</td>
 	<td>
 		&nbsp;
@@ -67,7 +67,7 @@ function formSubmit(){
 </tr>
 <tr>
 	<td colspan="2" style="padding:10px 0 20px 0" align="center">
-		<input type="submit" value="Ȯ��">
+		<input type="submit" value="확인">
 	</td>
 </tr>				
 </table>

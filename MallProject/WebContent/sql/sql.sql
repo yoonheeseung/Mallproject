@@ -119,3 +119,13 @@ select MEMBER_ADMIN from MEMBER where MEMBER_ID='admin'
 select * from user_tables;
 
 select * from goods;
+alter table goods modify  GOODS_IMAGE varchar2(200);
+
+desc goods;
+
+select member_pw from member where member_id='admin'
+
+select * from member;
+
+--select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where MEMBER_NAME='윤희승'
+select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where member_name='홍길동'

@@ -1,6 +1,6 @@
-<%@ page contentType="text/html; charset=euc-kr" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <html>
-<head><title>¼îÇÎ¸ô</title></head>
+<head><title>ì‡¼í•‘ëª°</title></head>
 <body>
 <table width="960" cellspacing="0" cellpadding="0" border="0" align="center">
 <tr><td colspan=2>
@@ -8,7 +8,7 @@
 <table width="380" cellpadding="0" cellspacing="0">
 	<tr>
 		<td align="center" height="50">
-			<font size="4"><b>È¸¿øÁ¤º¸°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.</b></font>
+			<font size="4"><b>íšŒì›ì •ë³´ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.</b></font>
 		</td>
 	</tr>		
 </table>
