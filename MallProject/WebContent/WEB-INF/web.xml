@@ -52,7 +52,7 @@
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>GoodsFrontController</servlet-name>
-		<servlet-class>com.goods.action.GoodsFrontController</servlet-class>
+		<servlet-class>com.mtory.action.GoodsFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GoodsFrontController</servlet-name>

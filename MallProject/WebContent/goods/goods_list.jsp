@@ -86,30 +86,30 @@ function searchPrice(item,searchprice) {
 				<%if(category.equals("new_item")) { 
 			      	if(price.equals("no")) {
 				%>
-				<a href="Goods_Detail.go?item=${item.GOODS_CATEGORY}
+				<a href="GoodsDetail.go?item=${item.GOODS_CATEGORY}
 						&gr_goods_num=${item.GOODS_NUM}&isitem=new">
 				<%	}else{ %>
-				<a href="Goods_Detail.go?item=${item.GOODS_CATEGORY}
+				<a href="GoodsDetail.go?item=${item.GOODS_CATEGORY}
 						&gr_goods_num=${item.GOODS_NUM}
 						&isitem=new&price=${price}">
 				<% 	}
 			      }else if (category.equals("hit_item")) { 
 			      	if(price.equals("no")) {
 			 	%>
-				<a href="Goods_Detail.go?item=${item.GOODS_CATEGORY}
+				<a href="GoodsDetail.go?item=${item.GOODS_CATEGORY}
 						&gr_goods_num=${item.GOODS_NUM}&isitem=hit">
 				<% 	}else{ %>
-				<a href="Goods_Detail.go?item=${item.GOODS_CATEGORY}
+				<a href="GoodsDetail.go?item=${item.GOODS_CATEGORY}
 						&gr_goods_num=${item.GOODS_NUM}
 						&isitem=hit&price=${price}">
 				<%	}
 			      } else { 
 					if(price.equals("no")) {
 				%>
-				<a href="Goods_Detail.go?item=${item.GOODS_CATEGORY}
+				<a href="GoodsDetail.go?item=${item.GOODS_CATEGORY}
 						&gr_goods_num=${item.GOODS_NUM}&isitem=other">
 				<% 	}else{ %>
-				<a href="Goods_Detail.go?item=${item.GOODS_CATEGORY}
+				<a href="GoodsDetail.go?item=${item.GOODS_CATEGORY}
 						&gr_goods_num=${item.GOODS_NUM}
 						&isitem=other&price=${price}">
 				<%	}
