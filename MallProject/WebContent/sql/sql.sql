@@ -127,5 +127,8 @@ select member_pw from member where member_id='admin'
 
 select * from member;
 
---select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where MEMBER_NAME='윤희승'
-select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where member_name='홍길동'
+alter table goods_order modify order_trade_type varchar2(40);
+select * from basket;
+
+--select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where MEMBER_NAME='�ㅽ씗��
+select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where member_name='�띻만��

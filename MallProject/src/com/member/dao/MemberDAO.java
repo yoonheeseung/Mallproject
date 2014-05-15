@@ -24,6 +24,7 @@ public class MemberDAO {
 	String isAdmSql="select MEMBER_ADMIN from MEMBER where MEMBER_ID=?";
 	String memberCheckSql="select MEMBER_ID from member where MEMBER_ID=? ";
 	String memberFindSql="select MEMBER_ID, MEMBER_PW, MEMBER_JUMIN1,MEMBER_JUMIN2 from member where MEMBER_NAME=?";
+	String getMemberSql="select * from member where MEMBER_ID=?";
 		
 	public MemberDAO() {
 		try{
@@ -226,4 +227,46 @@ public class MemberDAO {
 		}
 		return null;
 	}//findId()
+
+	//회원검색
+	public MemberBean getMember(String id) {
+		MemberBean member=null;
+		String sql=null;
+		
+		try{
+			con = ds.getConnection();
+			
+			pstmt=con.prepareStatement(getMemberSql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				member=new MemberBean();
+				
+				member.setMEMBER_ID(rs.getString("MEMBER_ID"));
+				member.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+				member.setMEMBER_JUMIN1(rs.getInt("MEMBER_JUMIN1"));
+				member.setMEMBER_JUMIN2(rs.getInt("MEMBER_JUMIN2"));
+				member.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+				member.setMEMBER_EMAIL_GET(rs.getString("MEMBER_EMAIL_GET"));
+				member.setMEMBER_MOBILE(rs.getString("MEMBER_MOBILE"));
+				member.setMEMBER_PHONE(rs.getString("MEMBER_PHONE"));
+				member.setMEMBER_ZIPCODE(rs.getString("MEMBER_ZIPCODE"));
+				member.setMEMBER_ADDR1(rs.getString("MEMBER_ADDR1"));
+				member.setMEMBER_ADDR2(rs.getString("MEMBER_ADDR2"));
+				
+				return member;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}	finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(con!=null)con.close();
+			}catch(Exception ex) {}
+		}
+		
+		return null;
+	}
 }
